@@ -329,37 +329,37 @@
         // Overview Page Logic
         function renderProjectList() {
             const list = document.getElementById('mock-project-list');
-            list.innerHTML = projects.map(p => \`
-                <div onclick="selectProject(\${p.id})" style="padding: 10px; border-bottom: 1px solid #eee; cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='transparent'">
-                    <div style="font-weight: bold; font-size: 14px;">\${p.name}</div>
-                    <span class="badge" style="margin-top: 5px; display: inline-block;">\${p.status}</span>
+            list.innerHTML = projects.map(p => `
+                <div onclick="selectProject(${p.id})" style="padding: 10px; border-bottom: 1px solid #eee; cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='transparent'">
+                    <div style="font-weight: bold; font-size: 14px;">${p.name}</div>
+                    <span class="badge" style="margin-top: 5px; display: inline-block;">${p.status}</span>
                 </div>
-            \`).join('');
+            `).join('');
         }
 
         function selectProject(id) {
             const p = projects.find(item => item.id === id);
             const pane = document.getElementById('overview-details-pane');
-            pane.innerHTML = \`
+            pane.innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
-                    <h3 style="font-size: 20px; font-weight: bold; margin: 0;">\${p.name}</h3>
+                    <h3 style="font-size: 20px; font-weight: bold; margin: 0;">${p.name}</h3>
                     <button class="btn">Edit Project</button>
                 </div>
                 <table style="margin-bottom: 20px;">
-                    <tr><td style="width: 150px; font-weight: bold; background: transparent; border: none; padding: 5px 0;">Client Name:</td><td style="border: none; padding: 5px 0;">\${p.client}</td></tr>
-                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">PCODE:</td><td style="border: none; padding: 5px 0;">\${p.pcode}</td></tr>
-                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Project Lead:</td><td style="border: none; padding: 5px 0;"><span class="badge">\${p.lead}</span></td></tr>
-                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Project Manager:</td><td style="border: none; padding: 5px 0;"><span class="badge">\${p.pm}</span></td></tr>
-                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Status:</td><td style="border: none; padding: 5px 0;"><span class="badge" style="background-color: #ffd700;">\${p.status}</span></td></tr>
-                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Start Date:</td><td style="border: none; padding: 5px 0;">\${p.start}</td></tr>
-                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">End Date:</td><td style="border: none; padding: 5px 0;">\${p.end}</td></tr>
+                    <tr><td style="width: 150px; font-weight: bold; background: transparent; border: none; padding: 5px 0;">Client Name:</td><td style="border: none; padding: 5px 0;">${p.client}</td></tr>
+                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">PCODE:</td><td style="border: none; padding: 5px 0;">${p.pcode}</td></tr>
+                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Project Lead:</td><td style="border: none; padding: 5px 0;"><span class="badge">${p.lead}</span></td></tr>
+                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Project Manager:</td><td style="border: none; padding: 5px 0;"><span class="badge">${p.pm}</span></td></tr>
+                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Status:</td><td style="border: none; padding: 5px 0;"><span class="badge" style="background-color: #ffd700;">${p.status}</span></td></tr>
+                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">Start Date:</td><td style="border: none; padding: 5px 0;">${p.start}</td></tr>
+                    <tr><td style="font-weight: bold; background: transparent; border: none; padding: 5px 0;">End Date:</td><td style="border: none; padding: 5px 0;">${p.end}</td></tr>
                 </table>
                 <div style="margin-top: 20px;">
                     <p style="font-weight: bold; margin-bottom: 5px;">Meeting Notes</p>
-                    <div style="padding: 10px; border: 1px solid #ccc; background: #fafafa; font-style: italic;">\${p.notes}</div>
+                    <div style="padding: 10px; border: 1px solid #ccc; background: #fafafa; font-style: italic;">${p.notes}</div>
                     <button class="btn" style="margin-top: 10px;">Add Meeting Notes</button>
                 </div>
-            \`;
+            `;
         }
 
         // Bulk Editing Wizard Logic
@@ -368,22 +368,22 @@
                 btn.style.backgroundColor = "white";
                 btn.style.color = "#333";
             });
-            const activeBtn = document.getElementById(\`btn-step-\${step}\`);
+            const activeBtn = document.getElementById(`btn-step-${step}`);
             activeBtn.style.backgroundColor = "#e0e0e0";
             activeBtn.style.fontWeight = "bold";
 
             const content = document.getElementById('bulk-content');
             if (step === 1) {
-                content.innerHTML = \`
+                content.innerHTML = `
                     <h4 class="font-bold mb-2">The Project Kickoff Form</h4>
                     <p class="text-sm mb-2">This form serves as the entry point to establish or manage the foundational tasks of a project.</p>
                     <ul class="list-disc pl-5 text-sm mb-2">
                         <li>It displays the overall project status and PCODE.</li>
                         <li>You can add or edit high-level <strong>Tasks</strong> (e.g., Updates, Revisions, Customized tools) and manage the overall project status.</li>
                     </ul>
-                \`;
+                `;
             } else if (step === 2) {
-                content.innerHTML = \`
+                content.innerHTML = `
                     <h4 class="font-bold mb-2">Adding Contract Tasks and Action Items</h4>
                     <p class="text-sm mb-2">When you click "Edit" or "Add" next to a Task on the Kickoff form, you drill down into its specific deliverables:</p>
                     <ul class="list-disc pl-5 text-sm mb-2">
@@ -391,9 +391,9 @@
                         <li>You can paste the relevant <strong>Contract Language</strong> for reference.</li>
                         <li>Most importantly, you break the task down into specific <strong>Action Items</strong> (e.g., "update Socioeconomic Comparisons tab"). You can add as many action items as needed.</li>
                     </ul>
-                \`;
+                `;
             } else if (step === 3) {
-                content.innerHTML = \`
+                content.innerHTML = `
                     <h4 class="font-bold mb-2">Managing Individual Action Items</h4>
                     <p class="text-sm mb-2">Clicking "Edit" on a specific Action Item from the previous screen brings you to the most granular level.</p>
                     <ul class="list-disc pl-5 text-sm mb-2">
@@ -402,7 +402,7 @@
                         <li>Provide a detailed <strong>Description</strong> and notes.</li>
                         <li>Set the <strong>Status</strong> (e.g., Complete, In Progress) and toggle due dates.</li>
                     </ul>
-                \`;
+                `;
             }
         }
 
@@ -421,17 +421,17 @@
 
             const body = document.getElementById('task-table-body');
             if (filtered.length === 0) {
-                body.innerHTML = \`<tr><td colspan="5" style="text-align: center; color: #777;">No action items match your filters</td></tr>\`;
+                body.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #777;">No action items match your filters</td></tr>`;
             } else {
-                body.innerHTML = filtered.map(t => \`
+                body.innerHTML = filtered.map(t => `
                     <tr>
-                        <td style="font-size: 12px; color: #555;">\${t.project}</td>
-                        <td style="font-weight: bold;">\${t.title}</td>
-                        <td><span class="badge">\${t.status}</span></td>
-                        <td>\${t.resource}</td>
+                        <td style="font-size: 12px; color: #555;">${t.project}</td>
+                        <td style="font-weight: bold;">${t.title}</td>
+                        <td><span class="badge">${t.status}</span></td>
+                        <td>${t.resource}</td>
                         <td><button class="btn" style="padding: 4px 8px; font-size: 12px;">Edit Action Item</button></td>
                     </tr>
-                \`).join('');
+                `).join('');
             }
         }
 
