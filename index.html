@@ -171,6 +171,13 @@
                 <li>A form will open where you can type your notes and optionally attach files (drag & drop or browse).</li>
                 <li>Click <strong>Submit</strong> to save the notes to the project.</li>
             </ol>
+
+            <h3 class="text-xl font-bold mt-6 mb-2">Viewing Tasks &amp; Adding Action Items</h3>
+            <p class="mb-4">Below the Meeting Notes section, you will find a <strong>Tasks</strong> panel. This gives you a project-level view of all contract tasks and their associated action items, without needing to navigate to the Task Tracking page.</p>
+            <ul class="list-disc pl-6 mb-4 space-y-1">
+                <li><strong>Viewing Tasks:</strong> Expand any task to see its action items, statuses, and assigned resources at a glance.</li>
+                <li><strong>Adding Action Items:</strong> Click the <strong>Add Action Item</strong> button next to any task to open a Fillout form and attach a new action item directly to that task. This is useful in isolated cases where you need to quickly add work to a specific task while already in the project view.</li>
+            </ul>
         </div>
 
         <hr class="border-gray-300 mb-12">
@@ -356,6 +363,24 @@
                     <p class="font-bold mb-1 text-sm">Meeting Notes</p>
                     <div class="p-3 border border-gray-300 bg-gray-50 italic text-sm rounded">${p.notes}</div>
                     <button class="btn mt-3" title="A Fillout form will open to allow editing.">Add/Attach Meeting Notes</button>
+                </div>
+                <div class="mt-6">
+                    <p class="font-bold mb-2 text-sm">Tasks</p>
+                    ${tasks.filter(t => t.project === p.name).length === 0
+                        ? `<p class="text-gray-400 italic text-sm">No tasks found for this project.</p>`
+                        : tasks.filter(t => t.project === p.name).map(t => `
+                            <div class="border border-gray-200 rounded mb-2 bg-white">
+                                <div class="flex justify-between items-center p-2 bg-gray-50 border-b border-gray-200">
+                                    <span class="font-semibold text-sm text-gray-700">${t.title}</span>
+                                    <div class="flex gap-2 items-center">
+                                        <span class="badge">${t.status}</span>
+                                        <button class="btn py-1 px-2 text-xs" title="A Fillout form will open to allow editing.">Add Action Item</button>
+                                    </div>
+                                </div>
+                                <div class="p-2 text-xs text-gray-500">Assigned: <span class="font-medium text-gray-700">${t.resource}</span></div>
+                            </div>
+                        `).join('')
+                    }
                 </div>
             `;
         }
