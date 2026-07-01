@@ -288,12 +288,12 @@
         ];
 
         const tasks = [
-            { id: 101, title: "Kickoff Meeting", project: "2025-Acme Corporation", status: "Complete", resource: "Alice Smith" },
-            { id: 102, title: "Startup Guide", project: "2025-Acme Corporation", status: "Complete", resource: "Alice Smith" },
-            { id: 103, title: "Staff Meetings (# TBD)", project: "2025-City of Springfield", status: "In Progress", resource: "John Doe" },
-            { id: 104, title: "Stakeholder Survey", project: "2025-City of Springfield", status: "In Progress", resource: "Ryan North" },
-            { id: 105, title: "Accounting", project: "2025-State University", status: "Not Started", resource: "Taylor Clark" },
-            { id: 106, title: "Approval Process", project: "2025-State University", status: "Not Started", resource: "John Doe" }
+            { id: 101, title: "Kickoff Meeting", project: "2025-Acme Corporation", status: "Complete", resource: "Alice Smith", taskNumber: "Internal", contractLanguage: "EVENT: Annual kickoff and onboarding session..." },
+            { id: 102, title: "Startup Guide", project: "2025-Acme Corporation", status: "Complete", resource: "Alice Smith", taskNumber: "Internal", contractLanguage: "EVENT: Prepare orientation materials and guide..." },
+            { id: 103, title: "Staff Meetings (# TBD)", project: "2025-City of Springfield", status: "In Progress", resource: "John Doe", taskNumber: "Task 1", contractLanguage: "Consultant shall facilitate recurring staff meetings..." },
+            { id: 104, title: "Stakeholder Survey", project: "2025-City of Springfield", status: "In Progress", resource: "Ryan North", taskNumber: "Task 2", contractLanguage: "Consultant shall design and administer a stakeholder survey..." },
+            { id: 105, title: "Accounting", project: "2025-State University", status: "Not Started", resource: "Taylor Clark", taskNumber: "Internal", contractLanguage: "EVENT: Internal accounting and budget reconciliation..." },
+            { id: 106, title: "Approval Process", project: "2025-State University", status: "Not Started", resource: "John Doe", taskNumber: "Task 1", contractLanguage: "Consultant shall manage the deliverable approval workflow..." }
         ];
 
         // Overview Page Views Logic
@@ -364,23 +364,35 @@
                     <div class="p-3 border border-gray-300 bg-gray-50 italic text-sm rounded">${p.notes}</div>
                     <button class="btn mt-3" title="A Fillout form will open to allow editing.">Add/Attach Meeting Notes</button>
                 </div>
-                <div class="mt-6">
-                    <p class="font-bold mb-2 text-sm">Tasks</p>
-                    ${tasks.filter(t => t.project === p.name).length === 0
-                        ? `<p class="text-gray-400 italic text-sm">No tasks found for this project.</p>`
-                        : tasks.filter(t => t.project === p.name).map(t => `
-                            <div class="border border-gray-200 rounded mb-2 bg-white">
-                                <div class="flex justify-between items-center p-2 bg-gray-50 border-b border-gray-200">
-                                    <span class="font-semibold text-sm text-gray-700">${t.title}</span>
-                                    <div class="flex gap-2 items-center">
-                                        <span class="badge">${t.status}</span>
-                                        <button class="btn py-1 px-2 text-xs" title="A Fillout form will open to allow editing.">Add Action Item</button>
-                                    </div>
-                                </div>
-                                <div class="p-2 text-xs text-gray-500">Assigned: <span class="font-medium text-gray-700">${t.resource}</span></div>
-                            </div>
-                        `).join('')
-                    }
+                <div class="mt-6 border-t border-gray-200 pt-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="font-bold text-sm flex items-center gap-1"><span class="text-gray-400 text-xs">&#9660;</span> Tasks</p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table style="margin-top:0;">
+                            <thead>
+                                <tr>
+                                    <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Contract Task Name</th>
+                                    <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Contract Task Number</th>
+                                    <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Contract Language</th>
+                                    <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Add Action Item from Template</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tasks.filter(t => t.project === p.name).length === 0
+                                    ? '<tr><td colspan="4" style="text-align:center;color:#aaa;font-style:italic;font-size:12px;">No tasks found for this project.</td></tr>'
+                                    : tasks.filter(t => t.project === p.name).map(t => `
+                                        <tr>
+                                            <td style="font-size:12px;padding:7px 8px;">${t.title}</td>
+                                            <td style="font-size:12px;padding:7px 8px;color:#555;">${t.taskNumber}</td>
+                                            <td style="font-size:12px;padding:7px 8px;color:#555;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${t.contractLanguage}">${t.contractLanguage}</td>
+                                            <td style="padding:7px 8px;"><button class="btn py-1 px-2 text-xs" style="white-space:nowrap;" title="A Fillout form will open to allow editing.">+ Action Item from Template</button></td>
+                                        </tr>
+                                    `).join('')
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             `;
         }
