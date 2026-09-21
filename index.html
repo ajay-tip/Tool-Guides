@@ -102,6 +102,7 @@
         <a href="#overview-page" class="nav-link">1. Projects Section</a>
         <a href="#task-tracking" class="nav-link">2. Task Tracking Page</a>
         <a href="#automated-emails" class="nav-link">3. Automated Emails</a>
+        <a href="#online-content" class="nav-link">4. Online Content Page</a>
     </div>
 
     <div class="main-content">
@@ -175,9 +176,9 @@
             <h3 class="text-xl font-bold mt-6 mb-2">Viewing Tasks, Action Items &amp; Task Completion</h3>
             <p class="mb-4">Below the Meeting Notes section, you will find a <strong>Tasks</strong> panel. This gives you a project-level view of all contract tasks and their associated action items, without needing to navigate to the Task Tracking page.</p>
             <ul class="list-disc pl-6 mb-4 space-y-1">
-                <li><strong>Viewing Tasks:</strong> View contract task names, numbers, and contract language at a glance.</li>
-                <li><strong>Adding Action Items:</strong> Click the <strong>+ Action Item from Template</strong> button next to any task to open a Fillout form and attach a new action item directly to that task. This is useful in isolated cases where you need to quickly add work to a specific task while already in the project view.</li>
-                <li><strong>✅ Mark Task as Complete:</strong> Located right next to the "+ Action Item from Template" button, checking the <strong>Mark task as complete</strong> checkbox triggers an Airtable Automation that automatically sets all child Action Items to "Complete" and updates your formula-based completion flag.</li>
+                <li><strong>Viewing Tasks:</strong> View contract task names, task numbers, and contract language references at a glance.</li>
+                <li><strong>✅ Mark Task as Complete:</strong> In the <strong>Task Complete Form</strong> column, click the blue <strong>✅ Mark task as complete</strong> button to open a Fillout form. Submitting this form triggers an Airtable Automation that automatically sets all child Action Items under that task to "Complete" and updates your formula-based completion flag.</li>
+                <li><strong>Adding Action Items:</strong> Click the blue <strong>+ Action Item from Template</strong> button to open a Fillout form and attach a new action item directly to that task.</li>
             </ul>
         </div>
 
@@ -266,8 +267,8 @@
             <h3 class="text-xl font-bold mt-6 mb-2">Task Completion Workflow &amp; Automation</h3>
             <p class="mb-4">To simplify task management and ensure accurate tracking across complex projects, an automated task completion workflow is built in:</p>
             <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>✅ Mark Task as Complete Checkbox:</strong> Available in the Projects section (Tasks panel, right next to "+ Action Item from Template") as well as in task management views.</li>
-                <li><strong>Airtable Automation:</strong> Checking the <strong>Mark task as complete</strong> box automatically triggers an Airtable Automation.</li>
+                <li><strong>✅ Mark Task as Complete Button:</strong> Located in the Projects section under the <strong>Task Complete Form</strong> column right next to "+ Action Item from Template".</li>
+                <li><strong>Airtable Automation:</strong> Clicking <strong>✅ Mark task as complete</strong> opens a Fillout form. Submitting this form automatically triggers an Airtable Automation.</li>
                 <li><strong>Cascading Child Action Item Updates:</strong> The automation automatically updates all child Action Items under that task to <strong>"Complete"</strong>.</li>
                 <li><strong>Formula-Based Flag Sync:</strong> Updating child Action Items to "Complete" automatically updates your formula-based completion flag, ensuring accurate, real-time project metrics without manual data entry.</li>
             </ul>
@@ -285,6 +286,114 @@
                 <li><strong>Status: Revision:</strong> When the status of an action item is changed to "Revision", the assigned Resource is notified.</li>
                 <li><strong>Task Complete:</strong> When a task is fully complete, the Project Manager is notified.</li>
             </ul>
+        </div>
+
+        <hr class="border-gray-300 mb-12">
+
+        <div id="online-content" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">4. Online Content Page</h2>
+            <p class="mb-4">The Online Content page is dedicated to tracking blog posts, website insights, and social media content. It provides a centralized board view to monitor authors, draft due dates, publishing dates, categories, and platforms.</p>
+
+            <h3 class="text-xl font-bold mt-6 mb-2">Updating Status &amp; Adding Notes</h3>
+            <p class="mb-4">To update the publication status or communicate progress on any blog post or social media item:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li><strong>Update Status / Add Notes Button:</strong> Located in the <strong>Update Status</strong> column, click the blue <strong>Update Status / Add Notes</strong> button next to any content item.</li>
+                <li><strong>Fillout Form:</strong> Clicking the button opens a Fillout form where you can update the item's Status (e.g., Not Started, In progress, Complete) and enter details into the dedicated <strong>Notes</strong> field.</li>
+                <li><strong>Dedicated Space for Updates &amp; Notes:</strong> The exposed Notes field directly resolves team feedback requesting a dedicated space for additional updates, review notes, and ongoing communication.</li>
+            </ul>
+
+            <div class="mb-2 text-sm font-bold text-blue-700">🖱️ Interactive: Online Content Board View</div>
+            <div class="interactive-panel mt-0">
+                <div class="flex items-center gap-2 mb-4 bg-gray-100 p-3 border border-gray-300 text-sm font-bold text-gray-700">
+                    <span>Online Content &gt; Board</span>
+                </div>
+                <div class="overflow-x-auto bg-white border border-gray-300 rounded shadow-sm">
+                    <table class="w-full text-xs text-left">
+                        <thead class="bg-gray-50 border-b border-gray-200 text-gray-600 uppercase font-semibold">
+                            <tr>
+                                <th class="p-2.5">Name</th>
+                                <th class="p-2.5">Author</th>
+                                <th class="p-2.5">Status</th>
+                                <th class="p-2.5 text-center">Update Status</th>
+                                <th class="p-2.5">Category</th>
+                                <th class="p-2.5">Platform</th>
+                                <th class="p-2.5">Draft Due</th>
+                                <th class="p-2.5">Insight Theme</th>
+                                <th class="p-2.5">Online Date</th>
+                                <th class="p-2.5">Insight Brand</th>
+                                <th class="p-2.5">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2.5 font-semibold text-gray-800">Q3 26 Performance-Based Workforce Models</td>
+                                <td class="p-2.5"><span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200 text-gray-700">Alice Smith</span></td>
+                                <td class="p-2.5"><span class="badge bg-yellow-100 text-yellow-800">In progress</span></td>
+                                <td class="p-2.5 text-center"><button class="btn py-1 px-2.5 text-xs rounded whitespace-nowrap" title="A Fillout form will open to allow editing.">Update Status / Add Notes</button></td>
+                                <td class="p-2.5"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-100 font-semibold">BLOG</span></td>
+                                <td class="p-2.5"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200 font-semibold">WEBSITE</span></td>
+                                <td class="p-2.5 text-gray-600">7/24/2026</td>
+                                <td class="p-2.5"><span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-100">Workforce</span></td>
+                                <td class="p-2.5 text-gray-600">7/30/2026</td>
+                                <td class="p-2.5 text-gray-600">Unbranded</td>
+                                <td class="p-2.5 text-gray-400 italic">–</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2.5 font-semibold text-gray-800">Q3 26 Regional Talent Acceleration Guide</td>
+                                <td class="p-2.5"><span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200 text-gray-700">John Doe</span></td>
+                                <td class="p-2.5"><span class="badge bg-gray-100 text-gray-700">Not Started</span></td>
+                                <td class="p-2.5 text-center"><button class="btn py-1 px-2.5 text-xs rounded whitespace-nowrap" title="A Fillout form will open to allow editing.">Update Status / Add Notes</button></td>
+                                <td class="p-2.5"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-100 font-semibold">BLOG</span></td>
+                                <td class="p-2.5"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200 font-semibold">WEBSITE</span></td>
+                                <td class="p-2.5 text-gray-600">9/18/2026</td>
+                                <td class="p-2.5"><span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-100">Workforce</span></td>
+                                <td class="p-2.5 text-gray-600">9/30/2026</td>
+                                <td class="p-2.5 text-gray-600">Unbranded</td>
+                                <td class="p-2.5 text-gray-400 italic">–</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2.5 font-semibold text-gray-800">Q3 26 Up/Reskilling Book Summary</td>
+                                <td class="p-2.5"><span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200 text-gray-700">Eva Stone</span></td>
+                                <td class="p-2.5"><span class="badge bg-gray-100 text-gray-700">Not Started</span></td>
+                                <td class="p-2.5 text-center"><button class="btn py-1 px-2.5 text-xs rounded whitespace-nowrap" title="A Fillout form will open to allow editing.">Update Status / Add Notes</button></td>
+                                <td class="p-2.5"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-100 font-semibold">BLOG</span></td>
+                                <td class="p-2.5"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200 font-semibold">WEBSITE</span></td>
+                                <td class="p-2.5 text-gray-600">8/14/2026</td>
+                                <td class="p-2.5"><span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-100">Workforce</span></td>
+                                <td class="p-2.5 text-gray-600">8/20/2026</td>
+                                <td class="p-2.5 text-gray-600">Unbranded</td>
+                                <td class="p-2.5 text-gray-400 italic">–</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2.5 font-semibold text-gray-800">Q4 26 Airports and Resilience Briefing</td>
+                                <td class="p-2.5"><span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200 text-gray-700">Ryan North</span></td>
+                                <td class="p-2.5"><span class="badge bg-gray-100 text-gray-700">Not Started</span></td>
+                                <td class="p-2.5 text-center"><button class="btn py-1 px-2.5 text-xs rounded whitespace-nowrap" title="A Fillout form will open to allow editing.">Update Status / Add Notes</button></td>
+                                <td class="p-2.5"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-100 font-semibold">BLOG</span></td>
+                                <td class="p-2.5"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200 font-semibold">WEBSITE</span></td>
+                                <td class="p-2.5 text-gray-600">10/23/2026</td>
+                                <td class="p-2.5"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded border border-pink-100">Resilience</span></td>
+                                <td class="p-2.5 text-gray-600">10/27/2026</td>
+                                <td class="p-2.5 text-gray-600">Unbranded</td>
+                                <td class="p-2.5 text-gray-400 italic">–</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2.5 font-semibold text-gray-800">Q4 Resilience Overview Post</td>
+                                <td class="p-2.5"><span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200 text-gray-700">Taylor Clark</span></td>
+                                <td class="p-2.5"><span class="badge bg-yellow-100 text-yellow-800">In progress</span></td>
+                                <td class="p-2.5 text-center"><button class="btn py-1 px-2.5 text-xs rounded whitespace-nowrap" title="A Fillout form will open to allow editing.">Update Status / Add Notes</button></td>
+                                <td class="p-2.5"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-100 font-semibold">BLOG</span></td>
+                                <td class="p-2.5"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200 font-semibold">WEBSITE</span></td>
+                                <td class="p-2.5 text-gray-600">10/9/2026</td>
+                                <td class="p-2.5"><span class="bg-pink-50 text-pink-700 px-2 py-0.5 rounded border border-pink-100">Resilience</span></td>
+                                <td class="p-2.5 text-gray-600">11/3/2026</td>
+                                <td class="p-2.5 text-gray-600">Unbranded</td>
+                                <td class="p-2.5 text-gray-400 italic">–</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -385,8 +494,8 @@
                                     <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Contract Task Name</th>
                                     <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Contract Task Number</th>
                                     <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Contract Language</th>
+                                    <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Task Complete Form</th>
                                     <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Add Action Item from Template</th>
-                                    <th style="font-size:11px;padding:6px 8px;background:#f9fafb;">Mark Task as Complete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -397,8 +506,8 @@
                                             <td style="font-size:12px;padding:7px 8px;">${t.title}</td>
                                             <td style="font-size:12px;padding:7px 8px;color:#555;">${t.taskNumber}</td>
                                             <td style="font-size:12px;padding:7px 8px;color:#555;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${t.contractLanguage}">${t.contractLanguage}</td>
+                                            <td style="padding:7px 8px;"><button class="btn py-1 px-2 text-xs" style="white-space:nowrap;" title="A Fillout form will open to allow editing.">✅ Mark task as complete</button></td>
                                             <td style="padding:7px 8px;"><button class="btn py-1 px-2 text-xs" style="white-space:nowrap;" title="A Fillout form will open to allow editing.">+ Action Item from Template</button></td>
-                                            <td style="font-size:12px;padding:7px 8px;text-align:center;"><label class="inline-flex items-center gap-1 cursor-pointer text-xs" title="Checking this box triggers Airtable Automation to set all child Action Items to Complete."><input type="checkbox" ${t.status === 'Complete' ? 'checked' : ''}> ✅ Complete</label></td>
                                         </tr>
                                     `).join('')
                                 }
