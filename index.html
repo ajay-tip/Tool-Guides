@@ -101,8 +101,8 @@
         <a href="#feedback-support" class="nav-link">Feedback & Support</a>
         <a href="#overview-page" class="nav-link">1. Projects Section</a>
         <a href="#task-tracking" class="nav-link">2. Task Tracking Page</a>
-        <a href="#automated-emails" class="nav-link">3. Automated Emails</a>
-        <a href="#online-content" class="nav-link">4. Online Content Page</a>
+        <a href="#online-content" class="nav-link">3. Online Content Page</a>
+        <a href="#automated-emails" class="nav-link">4. Automated Emails</a>
     </div>
 
     <div class="main-content">
@@ -128,7 +128,7 @@
 
         <div id="forms-database" class="mb-12">
             <h2 class="text-2xl font-bold mb-4">Forms & Database Architecture</h2>
-            <p class="mb-4">We are using <strong>Fillout.com</strong> for all our forms. This allows users to view and edit the underlying <strong>Airtable</strong> database directly without needing a paid Airtable Creator or Editor subscription.</p>
+            <p class="mb-4">We are using <strong>Fillout.com</strong> for all our forms. This allows users to view and edit the underlying <strong>Airtable</strong> database directly without needing a paid Airtable Creator or Editor subscription. All action buttons in the tool (such as <strong>Edit Project</strong>, <strong>Add/Attach Meeting Notes</strong>, <strong>+ Action Item from Template</strong>, <strong>✅ Mark task as complete</strong>, and <strong>Update Status / Add Notes</strong>) are blue buttons that open dedicated Fillout forms.</p>
         </div>
 
         <hr class="border-gray-300 mb-12">
@@ -177,7 +177,7 @@
             <p class="mb-4">Below the Meeting Notes section, you will find a <strong>Tasks</strong> panel. This gives you a project-level view of all contract tasks and their associated action items, without needing to navigate to the Task Tracking page.</p>
             <ul class="list-disc pl-6 mb-4 space-y-1">
                 <li><strong>Viewing Tasks:</strong> View contract task names, task numbers, and contract language references at a glance.</li>
-                <li><strong>✅ Mark Task as Complete:</strong> In the <strong>Task Complete Form</strong> column, click the blue <strong>✅ Mark task as complete</strong> button to open a Fillout form. Submitting this form triggers an Airtable Automation that automatically sets all child Action Items under that task to "Complete" and updates your formula-based completion flag.</li>
+                <li><strong>✅ Mark Task as Complete (Fillout Form Button):</strong> In the <strong>Task Complete Form</strong> column, click the blue <strong>✅ Mark task as complete</strong> button. This opens a Fillout form. Submitting this form triggers an Airtable Automation that automatically sets all child Action Items under that task to "Complete" and updates your formula-based completion flag.</li>
                 <li><strong>Adding Action Items:</strong> Click the blue <strong>+ Action Item from Template</strong> button to open a Fillout form and attach a new action item directly to that task.</li>
             </ul>
         </div>
@@ -265,33 +265,20 @@
             </ol>
 
             <h3 class="text-xl font-bold mt-6 mb-2">Task Completion Workflow &amp; Automation</h3>
-            <p class="mb-4">To simplify task management and ensure accurate tracking across complex projects, an automated task completion workflow is built in:</p>
+            <p class="mb-4">To simplify task management and ensure accurate tracking across complex projects, an automated task completion workflow is built in using Fillout forms:</p>
             <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>✅ Mark Task as Complete Button:</strong> Located in the Projects section under the <strong>Task Complete Form</strong> column right next to "+ Action Item from Template".</li>
-                <li><strong>Airtable Automation:</strong> Clicking <strong>✅ Mark task as complete</strong> opens a Fillout form. Submitting this form automatically triggers an Airtable Automation.</li>
-                <li><strong>Cascading Child Action Item Updates:</strong> The automation automatically updates all child Action Items under that task to <strong>"Complete"</strong>.</li>
+                <li><strong>✅ Mark Task as Complete (Blue Button):</strong> Located in the Projects section under the <strong>Task Complete Form</strong> column right next to "+ Action Item from Template". Like all other actions in the tool, it is a blue button that opens a dedicated Fillout form.</li>
+                <li><strong>Fillout Form Submission:</strong> Clicking the blue <strong>✅ Mark task as complete</strong> button opens the Fillout form for that task.</li>
+                <li><strong>Airtable Automation:</strong> Submitting the form automatically triggers an Airtable Automation.</li>
+                <li><strong>Cascading Child Action Item Updates:</strong> The automation automatically sets all child Action Items under that task to <strong>"Complete"</strong>.</li>
                 <li><strong>Formula-Based Flag Sync:</strong> Updating child Action Items to "Complete" automatically updates your formula-based completion flag, ensuring accurate, real-time project metrics without manual data entry.</li>
             </ul>
         </div>
 
         <hr class="border-gray-300 mb-12">
 
-        <div id="automated-emails" class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">3. Automated Emails</h2>
-            <p class="mb-4">The TIP Project Management Tool automatically sends email notifications to keep the team aligned:</p>
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>New Action Item:</strong> When a new action item is created, the assigned Resource is emailed.</li>
-                <li><strong>Resource Update:</strong> When the resource on an action item is updated, the newly assigned Resource is notified.</li>
-                <li><strong>Status: Production:</strong> When the status of an action item is changed to "Production", the Production team is notified.</li>
-                <li><strong>Status: Revision:</strong> When the status of an action item is changed to "Revision", the assigned Resource is notified.</li>
-                <li><strong>Task Complete:</strong> When a task is fully complete, the Project Manager is notified.</li>
-            </ul>
-        </div>
-
-        <hr class="border-gray-300 mb-12">
-
         <div id="online-content" class="mb-12">
-            <h2 class="text-2xl font-bold mb-4">4. Online Content Page</h2>
+            <h2 class="text-2xl font-bold mb-4">3. Online Content Page</h2>
             <p class="mb-4">The Online Content page is dedicated to tracking blog posts, website insights, and social media content. It provides a centralized board view to monitor authors, draft due dates, publishing dates, categories, and platforms.</p>
 
             <h3 class="text-xl font-bold mt-6 mb-2">Updating Status &amp; Adding Notes</h3>
@@ -394,6 +381,20 @@
                     </table>
                 </div>
             </div>
+        </div>
+
+        <hr class="border-gray-300 mb-12">
+
+        <div id="automated-emails" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">4. Automated Emails</h2>
+            <p class="mb-4">The TIP Project Management Tool automatically sends email notifications to keep the team aligned:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li><strong>New Action Item:</strong> When a new action item is created, the assigned Resource is emailed.</li>
+                <li><strong>Resource Update:</strong> When the resource on an action item is updated, the newly assigned Resource is notified.</li>
+                <li><strong>Status: Production:</strong> When the status of an action item is changed to "Production", the Production team is notified.</li>
+                <li><strong>Status: Revision:</strong> When the status of an action item is changed to "Revision", the assigned Resource is notified.</li>
+                <li><strong>Task Complete:</strong> When a task is fully complete, the Project Manager is notified.</li>
+            </ul>
         </div>
 
     </div>
